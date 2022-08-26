@@ -1,0 +1,5 @@
+.git
+typeidea/.idea
+*.py[cod]
+*.swp
+*.sqlite3
