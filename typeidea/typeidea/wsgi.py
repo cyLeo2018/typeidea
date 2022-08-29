@@ -11,8 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-profile = os.environ.get('PROFILE', 'dev')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'typeidea.settings.{profile}')
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'typeidea.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'typeidea.settings')
 
 application = get_wsgi_application()
