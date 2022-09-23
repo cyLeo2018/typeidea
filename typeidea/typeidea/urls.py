@@ -16,6 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from blog.views import IndexView, CategoryView, TagView, PostDetailView, SearchView, AuthorView
+from config.views import links
+from comment.views import CommentView
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', IndexView.as_view(), name='index'),  # 首页
+    path('category/<category_id>/', CategoryView.as_view(), name='category_list'),  # 分类列表页
+    path('tag/<tag_id>/', TagView.as_view(), name='tag_list'),  # 标签列表页
+    path('post/<post_id>/', PostDetailView.as_view(), name='post_detail'),  # 文章详情页
+    path('search/', SearchView.as_view(), name='search'),  # 搜索
+    path('comment/', CommentView.as_view(), name='comment'),  # 评论
+    path('author/<owner_id>/', AuthorView.as_view(), name='author'),  # 作者
+    path('links/', links, name='links'),  # 友链展示页
+    path('admin/', admin.site.urls, name='admin')  # 管理后台
 ]
