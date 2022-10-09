@@ -14,11 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from blog.views import IndexView, CategoryView, TagView, PostDetailView, SearchView, AuthorView
 from config.views import links
 from comment.views import CommentView
+
+from blog.apis import PostViewSet
+from rest_framework.routers import DefaultRouter
+import blog
+
+router = DefaultRouter()
+router.register(r'post', PostViewSet, basename='api-post')
 
 
 urlpatterns = [
@@ -30,5 +37,7 @@ urlpatterns = [
     path('comment/', CommentView.as_view(), name='comment'),  # 评论
     path('author/<owner_id>/', AuthorView.as_view(), name='author'),  # 作者
     path('links/', links, name='links'),  # 友链展示页
+    path('api-auth/', include('rest_framework.urls')),  # restful api auth
+    # path('api/', include(router.urls)),  # restful api
     path('admin/', admin.site.urls, name='admin')  # 管理后台
 ]
