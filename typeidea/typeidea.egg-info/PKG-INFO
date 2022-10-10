@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: typeidea
+Version: 0.1
+Summary: blog system base on django
+Home-page: https://www.classicog.com
+Author: leo
+Author-email: 961363629@qq.com
+License: MIT
+License-File: LICENSE.md

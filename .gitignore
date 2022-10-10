@@ -3,3 +3,5 @@ typeidea/.idea
 *.py[cod]
 *.swp
 *.sqlite3
+dist
+build
